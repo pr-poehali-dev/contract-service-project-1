@@ -17,7 +17,7 @@ export default function HeroSection() {
             </span>
           </div>
           <a href="#form" className="hidden md:block btn-primary px-6 py-2 text-sm rounded-sm">
-            Записаться
+            Оставить заявку
           </a>
         </div>
       </nav>
