@@ -33,7 +33,7 @@ def send_email(to_email: str, subject: str, body: str):
 
 
 def handler(event: dict, context) -> dict:
-    """Приём заявки на собеседование и отправка в Telegram и на email. v2"""
+    """Приём заявки на собеседование и отправка в Telegram и на email. v3"""
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
