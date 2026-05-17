@@ -141,7 +141,10 @@ export default function FormSection() {
                 {loading ? "Отправка..." : "Отправить заявку"}
               </button>
               <p className="text-muted-foreground/50 text-xs text-center">
-                Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                Нажимая кнопку, вы соглашаетесь с{" "}
+                <a href="/privacy" className="underline hover:text-gold transition-colors">
+                  политикой обработки персональных данных
+                </a>
               </p>
             </form>
           )}
@@ -159,8 +162,11 @@ export default function FormSection() {
               Служба по контракту
             </span>
           </div>
-          <div className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            © 2024 — Официальный набор в ВС РФ
+          <div className="flex items-center gap-4 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span>© 2025 — Служба по контракту</span>
+            <a href="/privacy" className="underline hover:text-gold transition-colors" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              Политика конфиденциальности
+            </a>
           </div>
         </div>
       </footer>
