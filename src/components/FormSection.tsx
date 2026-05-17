@@ -39,7 +39,7 @@ export default function FormSection() {
             <h2 className="font-oswald text-4xl font-semibold uppercase text-foreground mb-3">
               Записаться на <span className="text-gold">собеседование</span>
             </h2>
-            <p className="text-muted-foreground">Оставьте заявку — офицер свяжется с вами в течение часа</p>
+            <p className="text-muted-foreground">Оставьте заявку — менеджер свяжется с вами в течение часа</p>
           </div>
 
           {submitted ? (
@@ -49,7 +49,7 @@ export default function FormSection() {
               </div>
               <h3 className="font-oswald text-2xl uppercase text-foreground mb-3">Заявка принята</h3>
               <p className="text-muted-foreground">
-                Ожидайте звонка в ближайшее время. Офицер подтвердит время собеседования.
+                Ожидайте звонка в ближайшее время. Менеджер подтвердит время собеседования.
               </p>
             </div>
           ) : (
