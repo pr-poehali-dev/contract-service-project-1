@@ -96,7 +96,8 @@ export default function InfoSections() {
               { label: "Региональная надбавка", value: "до 50 000 ₽", sub: "зависит от района" },
               { label: "Единовременный контракт", value: "от 400 000 ₽", sub: "при подписании" },
               { label: "Страховка при ранении", value: "от 900 000 ₽", sub: "в зависимости от тяжести" },
-              { label: "При гибели семье", value: "3 700 000 ₽", sub: "единовременно + пенсия" },
+              { label: "Единоразовая выплата", value: "до 3 100 000 ₽", sub: "при заключении контракта" },
+              { label: "Погашение долгов", value: "до 10 000 000 ₽", sub: "государственная программа" },
             ].map((item) => (
               <div key={item.label} className="bg-navy-card border border-border card-hover rounded-sm p-6">
                 <div className="text-muted-foreground text-sm mb-2">{item.label}</div>
