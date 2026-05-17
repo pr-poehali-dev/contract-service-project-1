@@ -1,15 +1,31 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const SUBMIT_URL = "https://functions.poehali.dev/0e890e58-b697-4915-8f8e-6fcc3c6d07b0";
 const timeslots = ["09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
 
 export default function FormSection() {
   const [form, setForm] = useState({ name: "", phone: "", age: "", date: "", time: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      await fetch(SUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setSubmitted(true);
+    } catch {
+      setError("Ошибка отправки. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const today = new Date().toISOString().split("T")[0];
@@ -118,8 +134,11 @@ export default function FormSection() {
                 </div>
               </div>
 
-              <button type="submit" className="w-full btn-primary py-4 text-base rounded-sm">
-                Отправить заявку
+              {error && (
+                <p className="text-red-400 text-sm text-center">{error}</p>
+              )}
+              <button type="submit" disabled={loading} className="w-full btn-primary py-4 text-base rounded-sm disabled:opacity-60">
+                {loading ? "Отправка..." : "Отправить заявку"}
               </button>
               <p className="text-muted-foreground/50 text-xs text-center">
                 Нажимая кнопку, вы соглашаетесь с обработкой персональных данных

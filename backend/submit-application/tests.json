@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {"age": "25"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Valid application",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Иванов Иван", "phone": "+79001234567", "age": "27", "date": "2024-12-01", "time": "10:00"},
+      "expectedStatus": 200
+    }
+  ]
+}
