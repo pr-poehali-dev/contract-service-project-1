@@ -37,7 +37,7 @@ export default function FormSection() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="mb-10 text-center">
             <h2 className="font-oswald text-4xl font-semibold uppercase text-foreground mb-3">
-              Записаться на <span className="text-gold">собеседование</span>
+              Оставить <span className="text-gold">заявку</span>
             </h2>
             <p className="text-muted-foreground">Оставьте заявку — менеджер свяжется с вами в течение часа</p>
           </div>

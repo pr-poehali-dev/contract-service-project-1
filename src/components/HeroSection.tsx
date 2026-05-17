@@ -49,7 +49,7 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#form" className="btn-primary px-8 py-4 text-base rounded-sm inline-block">
-                Записаться на собеседование
+                Оставить заявку
               </a>
               <a href="#requirements" className="btn-outline px-8 py-4 text-base rounded-sm inline-block">
                 Узнать условия
