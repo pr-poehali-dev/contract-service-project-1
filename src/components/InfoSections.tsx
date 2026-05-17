@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const positions = [
@@ -77,6 +78,78 @@ const benefits = [
   },
 ];
 
+const requirementBlocks = [
+  {
+    icon: "User",
+    title: "Возраст",
+    items: [
+      { title: "Основной диапазон", text: "От 18 до 58 лет для граждан РФ." },
+      { title: "Региональные исключения", text: "В некоторых регионах допускается выше — уточняйте при подаче заявки." },
+      { title: "Женщины", text: "С 18 лет, без верхнего ограничения для офицеров." },
+    ],
+  },
+  {
+    icon: "Flag",
+    title: "Гражданство",
+    items: [
+      { title: "Граждане РФ", text: "Принимаются без ограничений." },
+      { title: "Иностранные граждане", text: "Ряд стран — допускается, уточняйте условия." },
+      { title: "Лица без гражданства", text: "Рассматриваются в индивидуальном порядке." },
+    ],
+  },
+  {
+    icon: "Activity",
+    title: "Здоровье",
+    items: [
+      { title: "Категория годности", text: "А и Б — подходят. В — требует уточнения причин. Д — не подходит." },
+      { title: "Зрение", text: "Ухудшенное допускается, кроме ряда регионов. Обязательны контактные линзы и способность читать таблицу." },
+      { title: "Избыточный вес", text: "Оценивается ИМТ. Воронеж, Казань, Н. Новгород могут принять при 1–2 степени, если кандидат справляется с нагрузкой." },
+      { title: "Плоскостопие", text: "Допускается всех степеней при отсутствии ограничений." },
+      { title: "Проблемы с зубами", text: "Допустимы, если не вызывают боли или воспалений." },
+      { title: "Татуировки", text: "Допустимы, кроме запрещённой символики. На лице — только при наличии справки из ПНД." },
+      { title: "Шрамы и операции", text: "Рассматриваются индивидуально. Требуются фото и заключение об отсутствии ограничений." },
+      { title: "Инвалидность III группы", text: "Допустима в отдельных случаях (Н. Новгород, Воронеж) при отсутствии визуальных признаков." },
+      { title: "ПНД и наркоучёт", text: "Возможен в ряде регионов (Камчатка, Вологда, Воронеж, Н. Новгород), если кандидат не из этих городов." },
+    ],
+  },
+];
+
+function RequirementBlock({ icon, title, items }: { icon: string; title: string; items: { title: string; text: string }[] }) {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  return (
+    <div className="bg-navy-card border border-border rounded-sm overflow-hidden">
+      <div className="flex items-center gap-3 px-6 py-5">
+        <div className="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
+          <Icon name={icon} size={20} className="text-gold" />
+        </div>
+        <h3 className="font-oswald text-xl font-semibold uppercase text-foreground">{title}</h3>
+      </div>
+      <div className="border-t border-border">
+        {items.map((item, idx) => (
+          <div key={item.title} className="border-b border-border last:border-b-0">
+            <button
+              className="w-full flex items-center justify-between px-6 py-4 text-left"
+              onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+            >
+              <span className="font-oswald text-sm font-semibold text-foreground">{item.title}</span>
+              <Icon
+                name={openIdx === idx ? "ChevronUp" : "ChevronDown"}
+                size={16}
+                className="text-gold flex-shrink-0 ml-3"
+              />
+            </button>
+            {openIdx === idx && (
+              <div className="px-6 pb-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function InfoSections() {
   return (
     <>
@@ -118,68 +191,10 @@ export default function InfoSections() {
             </h2>
             <p className="text-muted-foreground mt-6">Базовые требования для заключения контракта</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {[
-              {
-                icon: "User",
-                title: "Возраст",
-                items: ["18–60 лет для граждан РФ", "Без верхнего ограничения для офицеров", "Женщины — с 18 лет"],
-              },
-              {
-                icon: "Flag",
-                title: "Гражданство",
-                items: ["Граждане РФ", "Иностранные граждане (ряд стран)", "Лица без гражданства"],
-              },
-            ].map((block) => (
-              <div key={block.title} className="bg-navy-card border border-border rounded-sm p-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center">
-                    <Icon name={block.icon} size={20} className="text-gold" />
-                  </div>
-                  <h3 className="font-oswald text-xl font-semibold uppercase text-foreground">{block.title}</h3>
-                </div>
-                <ul className="space-y-2">
-                  {block.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-muted-foreground text-sm">
-                      <Icon name="ChevronRight" size={16} className="text-gold mt-0.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {requirementBlocks.map((block) => (
+              <RequirementBlock key={block.title} icon={block.icon} title={block.title} items={block.items} />
             ))}
-          </div>
-
-          {/* ЗДОРОВЬЕ — расширенный блок */}
-          <div className="bg-navy-card border border-border rounded-sm p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center">
-                <Icon name="Activity" size={20} className="text-gold" />
-              </div>
-              <h3 className="font-oswald text-xl font-semibold uppercase text-foreground">Здоровье</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                { title: "Возраст", text: "От 18 до 58 лет. В некоторых регионах допускается выше." },
-                { title: "Категория годности", text: "А и Б — подходят. В — требует уточнения причин. Д — не подходит." },
-                { title: "Зрение", text: "Ухудшенное допускается, кроме ряда регионов. Обязательны контактные линзы и способность читать таблицу." },
-                { title: "Избыточный вес", text: "Оценивается ИМТ. Воронеж, Казань, Н. Новгород могут принять при 1–2 степени, если кандидат способен выполнять нагрузку." },
-                { title: "Плоскостопие", text: "Допускается всех степеней при отсутствии ограничений." },
-                { title: "Проблемы с зубами", text: "Допустимы, если не вызывают боли или воспалений." },
-                { title: "Татуировки", text: "Допустимы, кроме запрещённой символики. На лице — только при наличии справки из ПНД." },
-                { title: "Шрамы и операции", text: "Рассматриваются индивидуально. Требуются фото и заключение об отсутствии ограничений." },
-                { title: "Инвалидность III группы", text: "Допустима в отдельных случаях (Н. Новгород, Воронеж) при отсутствии визуальных признаков." },
-                { title: "ПНД и наркоучёт", text: "Возможен в ряде регионов (Камчатка, Вологда, Воронеж, Н. Новгород), если кандидат не из этих городов." },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={16} className="text-gold mt-1 flex-shrink-0" />
-                  <div>
-                    <div className="font-oswald text-sm font-semibold text-foreground mb-1">{item.title}</div>
-                    <div className="text-muted-foreground text-sm leading-relaxed">{item.text}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
