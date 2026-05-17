@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/71395e1f-9745-4aca-9a61-304f88d0259c/files/77302f88-e46d-414f-a041-6446355a2c77.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/71395e1f-9745-4aca-9a61-304f88d0259c/files/117191d1-4ee4-4279-ab9d-0e1c8adf7e40.jpg";
 
 export default function HeroSection() {
   return (
