@@ -6,13 +6,13 @@ export default function HeroSection() {
   return (
     <>
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border" style={{ backgroundColor: '#0F172A' }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gold rounded-sm flex items-center justify-center">
-              <Icon name="Shield" size={18} className="text-background" />
+            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#FBBF24' }}>
+              <Icon name="Shield" size={18} style={{ color: '#0F172A' }} />
             </div>
-            <span className="font-oswald font-semibold text-lg tracking-widest uppercase text-foreground">
+            <span className="font-oswald font-semibold text-lg tracking-widest uppercase" style={{ color: '#ffffff' }}>
               Служба по контракту
             </span>
           </div>
@@ -28,8 +28,8 @@ export default function HeroSection() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,59,43,0.97) 0%, rgba(26,59,43,0.88) 55%, rgba(26,59,43,0.4) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 40%)' }} />
 
         <div className="relative max-w-7xl mx-auto px-6 py-24">
           <div className="max-w-2xl">
@@ -63,7 +63,7 @@ export default function HeroSection() {
                 { val: "30 суток", label: "ежегодный отпуск" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="font-oswald text-2xl font-bold text-gold">{stat.val}</div>
+                  <div className="font-oswald text-3xl md:text-4xl font-bold" style={{ color: '#FBBF24' }}>{stat.val}</div>
                   <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
                 </div>
               ))}

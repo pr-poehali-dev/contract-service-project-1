@@ -149,17 +149,17 @@ export default function FormSection() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 section-divider">
+      <footer className="py-10 section-divider" style={{ backgroundColor: '#0F2E1F' }}>
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 bg-gold rounded-sm flex items-center justify-center">
-              <Icon name="Shield" size={15} className="text-background" />
+            <div className="w-7 h-7 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#FBBF24' }}>
+              <Icon name="Shield" size={15} style={{ color: '#0F172A' }} />
             </div>
-            <span className="font-oswald text-sm tracking-widest uppercase text-muted-foreground">
+            <span className="font-oswald text-sm tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Служба по контракту
             </span>
           </div>
-          <div className="text-muted-foreground/50 text-xs">
+          <div className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
             © 2024 — Официальный набор в ВС РФ
           </div>
         </div>

@@ -4,40 +4,42 @@
 
 @layer base {
   :root {
-    --background: 220 25% 6%;
+    --background: 222 47% 8%;
     --foreground: 210 20% 92%;
 
-    --card: 220 22% 9%;
+    --card: 222 44% 10%;
     --card-foreground: 210 20% 92%;
 
-    --popover: 220 22% 9%;
+    --popover: 222 44% 10%;
     --popover-foreground: 210 20% 92%;
 
-    --primary: 43 85% 52%;
-    --primary-foreground: 220 25% 6%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 222 47% 8%;
 
-    --secondary: 220 18% 14%;
+    --secondary: 222 35% 16%;
     --secondary-foreground: 210 20% 92%;
 
-    --muted: 220 18% 14%;
+    --muted: 222 35% 16%;
     --muted-foreground: 215 15% 55%;
 
-    --accent: 43 85% 52%;
-    --accent-foreground: 220 25% 6%;
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 8%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 20% 92%;
 
-    --border: 220 18% 18%;
-    --input: 220 18% 14%;
-    --ring: 43 85% 52%;
+    --border: 222 35% 20%;
+    --input: 222 35% 16%;
+    --ring: 43 96% 56%;
 
     --radius: 0.25rem;
 
-    --navy: 220 50% 12%;
-    --navy-light: 220 40% 16%;
-    --gold: 43 85% 52%;
-    --gold-light: 43 80% 65%;
+    --navy: 222 47% 8%;
+    --navy-light: 222 40% 14%;
+    --gold: 43 96% 56%;
+    --gold-light: 43 90% 68%;
+
+    --footer-bg: 150 47% 12%;
   }
 }
 
@@ -53,7 +55,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: "IBM Plex Sans", sans-serif;
-    background-color: hsl(220, 25%, 6%);
+    background-color: hsl(222, 47%, 8%);
   }
 
   h1,
@@ -75,39 +77,39 @@
   }
 
   .text-gold {
-    color: hsl(43, 85%, 52%);
+    color: hsl(43, 96%, 56%);
   }
 
   .bg-gold {
-    background-color: hsl(43, 85%, 52%);
+    background-color: hsl(43, 96%, 56%);
   }
 
   .bg-navy {
-    background-color: hsl(220, 50%, 10%);
+    background-color: hsl(222, 47%, 8%);
   }
 
   .bg-navy-card {
-    background-color: hsl(220, 30%, 11%);
+    background-color: hsl(222, 40%, 11%);
   }
 
   .border-gold {
-    border-color: hsl(43, 85%, 52%);
+    border-color: hsl(43, 96%, 56%);
   }
 
   .border-gold\/30 {
-    border-color: hsl(43 85% 52% / 0.3);
+    border-color: hsl(43 96% 56% / 0.3);
   }
 
   .divider-gold {
-    border-top: 1px solid hsl(43, 85%, 52%);
+    border-top: 1px solid hsl(43, 96%, 56%);
   }
 
   .hero-gradient {
     background: linear-gradient(
       135deg,
-      hsl(220, 50%, 8%) 0%,
-      hsl(220, 40%, 12%) 50%,
-      hsl(215, 45%, 10%) 100%
+      hsl(222, 47%, 8%) 0%,
+      hsl(222, 40%, 12%) 50%,
+      hsl(218, 45%, 10%) 100%
     );
   }
 
@@ -126,7 +128,7 @@
     left: 0;
     width: 60px;
     height: 3px;
-    background: hsl(43, 85%, 52%);
+    background: hsl(43, 96%, 56%);
   }
 
   .animate-fade-up {
@@ -151,30 +153,33 @@
   }
 
   .card-hover:hover {
-    border-color: hsl(43, 85%, 52%);
+    border-color: hsl(43, 96%, 56%);
     transform: translateY(-2px);
   }
 
   .btn-primary {
-    background-color: hsl(43, 85%, 52%);
-    color: hsl(220, 25%, 6%);
+    background-color: hsl(43, 96%, 56%);
+    color: hsl(222, 47%, 8%);
     font-family: "Oswald", sans-serif;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     transition:
       background-color 0.2s ease,
+      color 0.2s ease,
       transform 0.15s ease;
   }
 
   .btn-primary:hover {
-    background-color: hsl(43, 80%, 62%);
+    background-color: hsl(222, 47%, 8%);
+    color: hsl(43, 96%, 56%);
+    border: 1px solid hsl(43, 96%, 56%);
     transform: translateY(-1px);
   }
 
   .btn-outline {
-    border: 1px solid hsl(43, 85%, 52%);
-    color: hsl(43, 85%, 52%);
+    border: 1px solid hsl(43, 96%, 56%);
+    color: hsl(43, 96%, 56%);
     font-family: "Oswald", sans-serif;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -185,7 +190,11 @@
   }
 
   .btn-outline:hover {
-    background-color: hsl(43, 85%, 52%);
-    color: hsl(220, 25%, 6%);
+    background-color: hsl(43, 96%, 56%);
+    color: hsl(222, 47%, 8%);
+  }
+
+  .bg-footer {
+    background-color: hsl(150, 47%, 12%);
   }
 }

@@ -167,10 +167,10 @@ export default function InfoSections() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {positions.map((pos) => (
-              <div key={pos.title} className="bg-navy-card border border-border card-hover rounded-sm p-5">
-                <div className="text-xs text-gold/70 font-oswald uppercase tracking-widest mb-2">{pos.category}</div>
-                <div className="font-oswald text-base font-semibold text-foreground mb-3">{pos.title}</div>
-                <div className="font-oswald text-lg text-gold font-bold">{pos.pay}</div>
+              <div key={pos.title} className="border border-border card-hover rounded-sm p-5" style={{ backgroundColor: '#1E293B' }}>
+                <div className="text-xs font-oswald uppercase tracking-widest mb-2" style={{ color: 'rgba(251,191,36,0.7)' }}>{pos.category}</div>
+                <div className="font-oswald text-base font-semibold mb-3" style={{ color: '#ffffff' }}>{pos.title}</div>
+                <div className="font-oswald text-lg font-bold" style={{ color: '#FBBF24' }}>{pos.pay}</div>
               </div>
             ))}
           </div>
