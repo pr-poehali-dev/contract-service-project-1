@@ -82,10 +82,13 @@ def handler(event: dict, context) -> dict:
 
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     tg_chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    print(f"TG token present: {bool(tg_token)}, chat_id present: {bool(tg_chat_id)}, chat_id value: {tg_chat_id}")
     if tg_token and tg_chat_id:
         try:
             send_telegram(tg_token, tg_chat_id, tg_text)
+            print("Telegram sent OK")
         except Exception as e:
+            print(f"Telegram error: {e}")
             errors.append(f"telegram: {e}")
 
     email_to = os.environ.get("EMAIL_TO", "")
